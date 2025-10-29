@@ -43,9 +43,6 @@ export const Home = () => {
 
   // console.log(a)
 
-  const bri = useRef(null)
-  const star = useRef(null)
-  const main = useRef(null)
   const mainveg = useRef(null)
   const rot = useRef(null)
   const home = useRef(null)
@@ -68,7 +65,7 @@ useEffect(()=>{
 
   return (
   <Box>
-    <Navbar home={home} bri={bri} star={star}  main={main} mainveg={mainveg} rot={rot} cart={cart}/>
+  <Navbar home={home} mainveg={mainveg} rot={rot} cart={cart}/>
 
 
    <Box
@@ -109,7 +106,7 @@ useEffect(()=>{
 
 
    <Box>
-   <Menu bri={bri} star={star}  main={main} mainveg={mainveg} rot={rot}  setCart={setCart}  />
+  <Menu mainveg={mainveg} rot={rot} setCart={setCart} />
    </Box>
 
 

@@ -5,7 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { getData } from "../Redux/action";
 import { SindleItem } from "./SindleItem";
 
-export const Menu = React.memo(({ bri, star, main, mainveg, rot,setCart,}) => {
+export const Menu = React.memo(({ mainveg, rot, setCart }) => {
  
     let cartData = JSON.parse(localStorage.getItem("cxcart")) || []
 
@@ -41,31 +41,12 @@ export const Menu = React.memo(({ bri, star, main, mainveg, rot,setCart,}) => {
     
    
 
-    const handleBri =()=>{
-   
-      bri.current?.scrollIntoView({behavior: 'smooth'})
-  
-  }
-  const handleMain =()=>{
-   
-      main.current?.scrollIntoView({behavior: 'smooth'})
-  
-  }
-  const handleMainV =()=>{
-  
-      mainveg.current?.scrollIntoView({behavior: 'smooth'})
-  
-  }
-  const handleRot =()=>{
-   
-      rot.current?.scrollIntoView({behavior: 'smooth'})
-  
-  }
-  const handleStar =()=>{
-   
-      star.current?.scrollIntoView({behavior: 'smooth'})
-  
-  }
+    const handleMainV =()=>{
+        mainveg?.current?.scrollIntoView({behavior: 'smooth'})
+    }
+    const handleRot =()=>{
+        rot?.current?.scrollIntoView({behavior: 'smooth'})
+    }
 
 
   return (
@@ -100,58 +81,23 @@ export const Menu = React.memo(({ bri, star, main, mainveg, rot,setCart,}) => {
     //  borderRadius={"20px"}
     //  shadow="rgba(0, 0, 0, 0.35) 0px 5px 15px"
       >
-  <Stack>
-             
-              <Button w="100%" colorScheme={"blue"}  fontWeight={"500"} fontSize={"25px"}  onClick={handleBri} >Biryani</Button>
-              <Button w="100%"  colorScheme={"blue"}  fontWeight={"500"} fontSize={"25px"}  onClick={handleStar} >Starter & Kabab</Button>
-              <Button w="100%" colorScheme={"blue"}  fontWeight={"500"} fontSize={"25px"}  onClick={handleMain} >Main Course Non-Veg</Button>
+            <Stack>
               <Button w="100%"  colorScheme={"blue"} fontWeight={"500"} fontSize={"25px"} onClick={handleMainV} >Main Course Veg</Button>
               <Button w="100%" colorScheme={"blue"}  fontWeight={"500"} fontSize={"25px"} onClick={handleRot} >Roti</Button>
-             
             </Stack>
   </Box>
 
 
       <Box>
-        {/* Menu item listed briyani start here */}
-
-        <Box ref={bri} p="10px">
-          <SindleItem data={food?.briyani} heading={"Biryani"} handleCart={handleCart} />
-        </Box>
-
-        {/* Menu item listed briyani end here */}
-
-        {/* Menu item listed Starter start here */}
-
-        <Box p="10px" ref={star}>
-          <SindleItem data={food?.starter} heading={"Starter & Kabab"} handleCart={handleCart} />
-        </Box>
-
-        {/* Menu item listed Starter end here */}
-
-        {/* Menu item listed MainCourse start here */}
-
-        <Box p="10px" ref={main}>
-          <SindleItem data={food?.maincourse} heading={"Main Course Non-Veg"} handleCart={handleCart} />
-        </Box>
-
-        {/* Menu item listed MainCourse end here */}
-
         {/* Menu item listed MainCourseVeg Start here */}
-
         <Box p="10px" ref={mainveg}>
           <SindleItem data={food?.maincoursev} heading={"Main Course Veg"} handleCart={handleCart} />
         </Box>
 
-        {/* Menu item listed MainCourseVeg end here */}
-
         {/* Menu item listed Roti start here */}
-
         <Box p="10px" ref={rot}>
           <SindleItem data={food?.roti} heading={"Roti"} handleCart={handleCart} />
         </Box>
-
-        {/* Menu item listed Roti end here */}
       </Box>
     </Box>
   );
