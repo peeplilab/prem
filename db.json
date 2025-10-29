@@ -1,0 +1,4 @@
+{
+  "unused": true,
+  "note": "This root-level db.json has been replaced. The application uses src/db.json now. You can safely remove this file if desired."
+}
