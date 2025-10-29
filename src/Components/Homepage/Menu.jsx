@@ -9,13 +9,13 @@ export const Menu = React.memo(({ bri, star, main, mainveg, rot,setCart,}) => {
  
     let cartData = JSON.parse(localStorage.getItem("cxcart")) || []
 
-    const handleCart = (item) =>{
-   
-        item.count = 1
-    
-        // console.log(item.count)
-    
-        cartData.push(item)
+    const handleCart = (item, isRemoving = false) =>{
+        if (isRemoving) {
+            cartData = cartData.filter(cartItem => cartItem.name !== item.name);
+        } else {
+            item.count = 1;
+            cartData.push(item);
+        }
     
         localStorage.setItem("cxcart",JSON.stringify(cartData))
         setCart(JSON.parse(localStorage.getItem("cxcart")))

@@ -11,8 +11,9 @@ const [clic,setCli] = useState(0)
 let cartData = JSON.parse(localStorage.getItem("cxcart")) || []
 
  const handleClick =(el) =>{
-   handleCart(el)
-   setCli(prev => prev +1)
+   const isItemInCart = cartData.some(item => item.name === el.name);
+   handleCart(el, isItemInCart);
+   setCli(isItemInCart ? 0 : prev => prev + 1);
  }
 // console.log(clic)
   return (
@@ -61,17 +62,16 @@ let cartData = JSON.parse(localStorage.getItem("cxcart")) || []
                   mb="5px"
                   w="100px"
                   border={"1px solid black"}
-                  bg="white"
+                  bg={cartData.some((item) => item.name === el.name) ? "#ff4d4d" : "white"}
+                  color={cartData.some((item) => item.name === el.name) ? "white" : "black"}
                   _hover={{
-                    bg: "#3182ce",
+                    bg: cartData.some((item) => item.name === el.name) ? "#ff3333" : "#3182ce",
                     color: "white",
                     border: "1px solid white",
                   }}
-                  // disable and label based on whether the item exists in the cart
-                  disabled={cartData.some((item) => item.name === el.name)}
                   onClick={()=>{handleClick(el)}}
                 >
-                 {cartData.some((item) => item.name === el.name) ? "Item Added" : "Add to cart"}
+                  {cartData.some((item) => item.name === el.name) ? "Remove" : "Add to cart"}
                 </Button>
               </Box>
             </Box>

@@ -119,7 +119,7 @@ const handleHome =()=>{
     fontSize={{base:"20px",sm:"25px",md:"",lg:"",xl:"","2xl":""}} 
      fontFamily={"'Space Grotesk', sans-serif"}
       fontWeight="900" ><span style={{color:"#3182ce",fontSize:"27px" }} 
-    >A</span>dnan Biryani Point</Text>
+    >P</span>remalya Trails Naggar</Text>
     </Box>
             
             <HStack
