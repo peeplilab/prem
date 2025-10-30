@@ -161,7 +161,7 @@ const handleWhatsBtn = ()=>{
 </Box>
 
 
-   <Link  style={{textDecoration:"none"}} target={"blank"} href={`https://wa.me/+919131540270?text=${text}`} >
+   <Link  style={{textDecoration:"none"}} target={"blank"} href={`https://wa.me/+918005578553?text=${text}`} >
    <Button margin={"20px"}
     colorScheme={"green"}
     onClick={handleWhatsBtn} 
