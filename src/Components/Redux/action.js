@@ -23,8 +23,17 @@ export const getData = () =>(dispatch)=>{
     // console.log("data inner fun")
     dispatch(getDataRequest())
     try{
-        // Use local hardcoded data from src/db.json instead of calling an external API
-        dispatch(getDataSuccess(db))
+        // Prefer any admin-updated menu stored in localStorage under 'menuData'
+        let dataToUse = db
+        try{
+            if (typeof window !== 'undefined'){
+                const saved = localStorage.getItem('menuData')
+                if (saved) dataToUse = JSON.parse(saved)
+            }
+        }catch(e){
+            // ignore localStorage errors and fall back to bundled db
+        }
+        dispatch(getDataSuccess(dataToUse))
     }catch(err){
         dispatch(getDataFailure())
     }

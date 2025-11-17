@@ -3,12 +3,14 @@ import { Routes } from 'react-router-dom'
 import { Route } from 'react-router-dom'
 import { Cart } from '../Cart/Cart'
 import { Home } from '../Homepage/Home'
+import { Admin } from '../Admin/Admin'
 
 export const AllRoutes = () => {
   return (
    <Routes>
     <Route path="/" element={<Home a={"a"} />}/>
     <Route path="/cart" element={<Cart/>}/>
+  <Route path="/admin" element={<Admin/>}/>
   </Routes>
   )
 }

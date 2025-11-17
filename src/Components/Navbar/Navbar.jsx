@@ -24,7 +24,7 @@ import { Link } from 'react-router-dom';
 
 
 
-export  function Navbar({home,mainveg,rot,cart}) {
+export  function Navbar({home,cart}) {
 
   const [cartCount, setCartCount] = useState((cart && cart.length) || JSON.parse(localStorage.getItem('cxcart'))?.length || 0)
 
@@ -54,12 +54,6 @@ export  function Navbar({home,mainveg,rot,cart}) {
 
 
   
-  const handleMainV =()=>{
-    mainveg?.current?.scrollIntoView({behavior: 'smooth'})
-  }
-  const handleRot =()=>{
-    rot?.current?.scrollIntoView({behavior: 'smooth'})
-  }
   const handleHome =()=>{
     home?.current?.scrollIntoView({behavior: 'smooth'})
   }
@@ -101,12 +95,9 @@ export  function Navbar({home,mainveg,rot,cart}) {
     >P</span>remalya Trails Naggar</Text>
     </Box>
             
-            <HStack
-              as={'nav'}
-              spacing={4}
-              display={{ base: 'none', md: 'flex' }}>
-              <Text  fontWeight={"500"} _hover={{color:"#3182ce"}}  cursor={"pointer"} onClick={handleMainV} >Main Course Veg</Text>
-              <Text  fontWeight={"500"} _hover={{color:"#3182ce"}} cursor={"pointer"} onClick={handleRot} > Roti </Text>
+            <HStack as={'nav'} spacing={4} display={{ base: 'none', md: 'flex' }}>
+              <Text fontWeight={"500"} _hover={{color:"#3182ce"}} cursor={"pointer"} onClick={handleHome}>Home</Text>
+              <Text as={Link} to="/admin" fontWeight={"500"} _hover={{color:"#3182ce"}} cursor={"pointer"}>Admin</Text>
             </HStack>
           </HStack>
          <Link to="/cart"> <Button  fontFamily={"'Space Grotesk', sans-serif"} colorScheme='blue'>Cart {cartCount}</Button></Link>
@@ -115,8 +106,8 @@ export  function Navbar({home,mainveg,rot,cart}) {
         {isOpen ? (
           <Box pb={4} display={{ md: 'none' }}>
             <Stack as={'nav'} spacing={4}>
-            <Text  fontWeight={"500"} _hover={{color:"#3182ce"}} fontSize={"23px"} onClick={handleMainV} >Main Course Veg</Text>
-            <Text   fontWeight={"500"} _hover={{color:"#3182ce"}} fontSize={"23px"} onClick={handleRot} > Roti </Text>
+              <Text fontWeight={"500"} _hover={{color:"#3182ce"}} fontSize={"23px"} onClick={handleHome}>Home</Text>
+              <Text as={Link} to="/admin" fontWeight={"500"} _hover={{color:"#3182ce"}} fontSize={"23px"}>Admin</Text>
             </Stack>
           </Box>
         ) : null}

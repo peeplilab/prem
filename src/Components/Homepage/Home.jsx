@@ -43,8 +43,6 @@ export const Home = () => {
 
   // console.log(a)
 
-  const mainveg = useRef(null)
-  const rot = useRef(null)
   const home = useRef(null)
 
 const [cart ,setCart] = useState(JSON.parse(localStorage.getItem("cxcart"))||[])
@@ -65,7 +63,7 @@ useEffect(()=>{
 
   return (
   <Box>
-  <Navbar home={home} mainveg={mainveg} rot={rot} cart={cart}/>
+  <Navbar home={home} cart={cart}/>
 
 
    <Box
@@ -105,9 +103,9 @@ useEffect(()=>{
    </Box>
 
 
-   <Box>
-  <Menu mainveg={mainveg} rot={rot} setCart={setCart} />
-   </Box>
+  <Box>
+  <Menu setCart={setCart} />
+  </Box>
 
 
   </Box>
