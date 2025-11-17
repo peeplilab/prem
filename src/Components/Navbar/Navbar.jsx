@@ -97,7 +97,6 @@ export  function Navbar({home,cart}) {
             
             <HStack as={'nav'} spacing={4} display={{ base: 'none', md: 'flex' }}>
               <Text fontWeight={"500"} _hover={{color:"#3182ce"}} cursor={"pointer"} onClick={handleHome}>Home</Text>
-              <Text as={Link} to="/admin" fontWeight={"500"} _hover={{color:"#3182ce"}} cursor={"pointer"}>Admin</Text>
             </HStack>
           </HStack>
          <Link to="/cart"> <Button  fontFamily={"'Space Grotesk', sans-serif"} colorScheme='blue'>Cart {cartCount}</Button></Link>
@@ -107,7 +106,6 @@ export  function Navbar({home,cart}) {
           <Box pb={4} display={{ md: 'none' }}>
             <Stack as={'nav'} spacing={4}>
               <Text fontWeight={"500"} _hover={{color:"#3182ce"}} fontSize={"23px"} onClick={handleHome}>Home</Text>
-              <Text as={Link} to="/admin" fontWeight={"500"} _hover={{color:"#3182ce"}} fontSize={"23px"}>Admin</Text>
             </Stack>
           </Box>
         ) : null}
