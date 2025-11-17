@@ -18,8 +18,8 @@ let cartData = JSON.parse(localStorage.getItem("cxcart")) || []
 // console.log(clic)
   return (
     <Box >
-      <Box p="50px">
-        <Heading fontSize={"50px"}>{heading}</Heading>
+      <Box p="40px 0 20px 0">
+        <Heading fontSize={{ base: "22px", md: "28px", lg: "32px" }} fontWeight="700">{heading}</Heading>
       </Box>
 
       <Box

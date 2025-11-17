@@ -67,13 +67,6 @@ export const Menu = React.memo(({ setCart }) => {
 
   return (
     <Box>
-      <Box
-        padding={{ base: "35px", sm: "35px", md: "40px", xl: "45px", lg: "50px", xl: "50px", "2xl": "50px" }}
-      >
-        <Heading fontWeight={"100"} fontFamily={"'Space Grotesk', sans-serif"} fontSize={"30px"}>
-          Menu that always make you fall in love
-        </Heading>
-      </Box>
 
       {/* Desktop: show sections full-width, left nav removed. */}
       <Box p="10px">
